@@ -1,5 +1,5 @@
 # Check if its SAFE when the order is Ascending
-def asc(numList: int) -> int:
+def asc(numList: list) -> int:
     flag = True
 
     for j in range(0, len(numList)-1):
@@ -11,7 +11,7 @@ def asc(numList: int) -> int:
     return 0
 
 # Check if its SAFE when the order is Descending
-def desc(numList: int) -> int:
+def desc(numList: list) -> int:
     flag = True
 
     for j in range(0, len(numList)-1):
@@ -31,25 +31,36 @@ def main():
 
     for i in f.readlines():
 
+        flag = False
+        
         numList = i.split()
         numList = [int(item) for item in numList]
-        
+
         if sorted(numList) == numList:
-            count += asc(numList)
+            if asc(numList):
+                count += 1
+                flag = True
 
         elif sorted(numList, reverse=True) == numList:
-            count += desc(numList)
+            if desc(numList):
+                count += 1
+                flag = True
         
-        else:
+        if flag==False:
+            
             for j in range(0, len(numList)):
                 newList = numList.copy()
                 newList.pop(j)
-                
                 if sorted(newList) == newList:
-                    count += asc(newList)
+                    if asc(newList):
+                        count += 1
+                        break
 
                 elif sorted(newList, reverse=True) == newList:
-                    count += desc(newList)
+                    if desc(newList):
+                        count += 1
+                        break
+                    
     print(count)
 
 main()
