@@ -11,7 +11,6 @@ flag = True
 do_muls = []
 list_ = []
 
-
 for i in range(0, len(muls)):
     if muls[i] == 'do()':
         flag = True
