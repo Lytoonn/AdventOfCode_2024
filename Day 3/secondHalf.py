@@ -2,16 +2,25 @@ import re
 
 f = open('input.txt', 'r').read()
 
-muls = []
-pairsDigits = []
-
-pattern = r'mul\(\d+,\d+\)'
+pattern = r'mul\(\d+,\d+\)|do\(\)|don\'t\(\)'
 digits = r'\d+,\d+'
 
 muls = re.findall(pattern, f)
-pairsDigits = [re.findall(digits, i) for i in muls]
 
+flag = True
+do_muls = []
 list_ = []
+
+
+for i in range(0, len(muls)):
+    if muls[i] == 'do()':
+        flag = True
+    elif muls[i] == 'don\'t()':
+        flag = False
+    elif flag == True:
+        do_muls.append(muls[i])
+
+pairsDigits = [re.findall(digits, i) for i in do_muls]
 
 for pairs in pairsDigits:
     for subPair in pairs:
