@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re
 
 f = open('input.txt', 'r').read()

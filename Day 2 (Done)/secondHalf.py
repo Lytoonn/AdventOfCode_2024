@@ -1,4 +1,4 @@
-# Check if its SAFE when the order is Ascending
+#!/usr/bin/env python3
 def asc(numList: list) -> int:
     flag = True
 
@@ -10,7 +10,6 @@ def asc(numList: list) -> int:
         return 1
     return 0
 
-# Check if its SAFE when the order is Descending
 def desc(numList: list) -> int:
     flag = True
 

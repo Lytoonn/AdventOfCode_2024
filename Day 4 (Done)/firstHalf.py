@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 f = open('input.txt', 'r').read()
 
 word = ('X', 'M', 'A', 'S')
